@@ -19,6 +19,7 @@ class Output
     puts "You have #{guesses} guesses left"
     false
   end
+
   def self.lost(word)
     puts "Too bad. The word was #{word}."
   end
