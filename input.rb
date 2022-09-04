@@ -2,15 +2,6 @@
 
 # will handle all user-input for the game
 class Input
-  def self.ask_name
-    puts 'Enter your name please:'
-    name = gets.chomp
-    return name unless name.length.zero?
-
-    puts 'Please type in something'
-    ask_name
-  end
-
   def self.guess(guessed)
     puts 'Enter a new letter:'
     letter = gets.chomp.downcase
