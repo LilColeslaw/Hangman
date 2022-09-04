@@ -27,7 +27,7 @@ class Play
       @guesses -= 1 unless @word.split('').include? guess
       @won = Output.response(@word, @guessed, @guesses)
     end
-    Output.lost(@word)
+    Output.lost(@word) unless @won
   end
 end
 Play.new
