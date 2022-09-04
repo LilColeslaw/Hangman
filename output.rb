@@ -16,7 +16,7 @@ class Output
       return true
     end
     puts "You have guessed: #{guessed.join(', ').chomp(', ')}"
-    puts "You have #{guesses} guesses left"
+    puts "You have #{guesses} lives left"
     false
   end
 
