@@ -9,7 +9,7 @@ class Play
 
   def initialize
     @word = pick_word
-    @guesses = 12
+    @guesses = 6
     @guessed = []
     @won = false
     play
