@@ -12,6 +12,7 @@ class Play
     @guesses = 6
     @guessed = []
     @won = false
+    Output.begin(@word)
     play
   end
 
