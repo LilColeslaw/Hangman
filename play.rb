@@ -7,12 +7,14 @@ require './output'
 class Play
   attr_reader :word
 
-  def initialize
-    @word = pick_word
-    @guesses = 6
-    @guessed = []
+  # use optional arguments to assign variables -> if loading new game will have all variables
+  def initialize(word = nil, guesses = 6, guessed = [])
+    @word = word
+    @word ||= pick_word
+    @guesses = guesses
+    @guessed = guessed
     @won = false
-    Output.begin(@word)
+    Output.begin(@word, @guesses, @guessed)
     play
   end
 
@@ -28,7 +30,6 @@ class Play
       @guesses -= 1 unless @word.split('').include? guess
       @won = Output.response(@word, @guessed, @guesses)
     end
-    Output.lost(@word) unless @won
   end
 end
-Play.new
+Play.new('hello', 1, %w[h a e])
