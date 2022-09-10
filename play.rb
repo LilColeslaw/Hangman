@@ -5,7 +5,7 @@ require './output'
 
 # will handle the inner workings of the game
 class Play
-  attr_reader :word
+  attr_reader :word, :guesses, :guessed
 
   # use optional arguments to assign variables -> if loading new game will have all variables
   def initialize(word = nil, guesses = 6, guessed = [])
