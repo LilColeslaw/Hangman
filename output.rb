@@ -25,7 +25,7 @@ class Output
     end
     if guesses.zero?
       lost(word)
-      return false
+      return true
     end
     puts "You have guessed: #{guessed.join(', ').chomp(', ')}"
     puts "You have #{guesses} lives left"
