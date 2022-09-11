@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
 # will format all of the output
-class Output
+module Output
   def self.begin(word, guesses, guessed)
     puts "You must guess a word letter by letter. The word is #{word.length} letters long.\n"\
          "You have #{guesses} lives. Every time you guess a letter not included in the word you lose a life.\n"\

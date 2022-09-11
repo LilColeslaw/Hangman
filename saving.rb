@@ -5,7 +5,7 @@ require './input'
 require './play'
 
 # will save and load game files
-class Saving
+module Saving
   def self.save(game)
     Dir.mkdir('games') unless File.exist?('games')
     game_name = Input.call_game

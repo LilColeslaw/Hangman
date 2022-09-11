@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
 # will handle all user-input for the game
-class Input
+module Input
   def self.guess(guessed)
     puts 'Enter a letter:'
     letter = gets.chomp.downcase
