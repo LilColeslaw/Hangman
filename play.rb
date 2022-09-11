@@ -1,10 +1,5 @@
 # frozen_string_literal: false
 
-require './saving'
-require './input'
-require './output'
-Saving.load
-
 # will handle the inner workings of the game
 class Play
   attr_reader :word, :guesses, :guessed
@@ -38,4 +33,3 @@ class Play
     end
   end
 end
-Play.new

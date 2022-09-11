@@ -1,8 +1,6 @@
 # frozen_string_literal: false
 
 require 'json'
-require './input'
-require './play'
 
 # will save and load game files
 module Saving

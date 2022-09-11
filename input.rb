@@ -25,7 +25,7 @@ module Input
       puts 'Not a valid game. Retry.'
       game = gets.chomp
     end
-    games.include?(game) ? game : games[game - 1] # return the name even if they gave a number
+    games.include?(game) ? game : games[game.to_i - 1] # return the name even if they gave a number
   end
 
   def self.load_game?
