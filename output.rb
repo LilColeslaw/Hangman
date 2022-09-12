@@ -2,37 +2,46 @@
 
 # will format all of the output
 module Output
-  def self.begin(word, guesses, guessed)
+  def start_message(word, guesses, guessed)
     puts "You must guess a word letter by letter. The word is #{word.length} letters long.\n"\
          "You have #{guesses} lives. Every time you guess a letter not included in the word you lose a life.\n"\
-         'Try to guess the word before you lose all of your lives.'
+         'Try to guess the word before you lose all of your lives. If you ever want to pause and save the game'\
+         "\nyou are in to return to it later, just enter 'save' instead of a letter."
     # if they are re-starting an old game, tell them what they have already guessed
-    puts "You have guessed: #{guessed.join(', ').chomp(', ')}" unless guessed.empty?
+    return if guessed.empty?
+
+    puts "You have guessed: #{guessed.join(', ').chomp(', ')}\nProgress: #{correct_letters(word, guessed)}"
   end
 
-  def self.response(word, guessed, guesses)
-    filled_in = word.split('').map do |letter|
+  def response(word, guessed, guesses)
+    correct_letters = correct_letters(word, guessed)
+    puts correct_letters
+    return true if correct_letters == word
+
+    puts "You have guessed: #{guessed.join(', ').chomp(', ')}"
+    puts "You have #{guesses} lives left"
+    false
+  end
+
+  def correct_letters(word, guessed)
+    word.split('').map do |letter|
       if guessed.include? letter
         letter
       else
         '_'
       end
     end.join('')
-    puts filled_in
-    if filled_in == word
-      puts 'You won the game!'
-      return true
-    end
-    if guesses.zero?
-      lost(word)
-      return true
-    end
-    puts "You have guessed: #{guessed.join(', ').chomp(', ')}"
-    puts "You have #{guesses} lives left"
-    false
   end
 
-  def self.lost(word)
+  def won
+    puts 'You got the word, nice job!'
+  end
+
+  def lost(word)
     puts "Too bad. The word was #{word}."
+  end
+
+  def goodbye
+    puts 'See you next time!'
   end
 end

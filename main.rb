@@ -1,7 +1,5 @@
 # frozen_string_literal: false
 
-require './input'
-require './output'
-require './saving'
+require './play'
 
 Play.new
